@@ -68,6 +68,9 @@ module Spaceship
       # App Store Connect API Faraday client.
       # Forwarding to class level if using web session.
       def hostname
+        if @token && @token.in_house
+          return "https://api.enterprise.developer.apple.com/"
+        end
         if @token
           return "https://api.appstoreconnect.apple.com/"
         end
