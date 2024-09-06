@@ -101,7 +101,7 @@ module Spaceship
           # Reduce the issued-at-time in case our time is slighly ahead of Apple's servers, which causes the token to be rejected.
           iat: now.to_i - 60,
           exp: @expiration.to_i,
-          aud: @in_house ? 'enterpriseprogramapi-v1' : 'appstoreconnect-v1'
+          aud: @in_house ? 'apple-developer-enterprise-v1' : 'appstoreconnect-v1'
         }
         if issuer_id
           payload[:iss] = issuer_id
